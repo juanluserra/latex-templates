@@ -1,0 +1,74 @@
+
+% Clase de documento
+\documentclass[12pt, letterpaper]{article}
+
+% Paquetes
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{biblatex}
+\usepackage{datetime}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+
+%------------ 
+% Decoración
+%------------
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header
+\fancyhead[L]{\textsc{\doctitle}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[R]{\textit{\nouppercase{\rightmark}}}
+
+% Footer
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{Página \thepage}
+
+% Título
+\newcommand{\doctitle}{Título del documento}
+\title{\doctitle}
+\author{Autor}
+\date{\monthname[\month] de \the\year}
+
+% Bibliografía
+\addbibresource{test.bib}
+
+
+%-----------
+% Documento
+%-----------
+\begin{document}
+
+% Mostrar el título
+\maketitle
+
+% Índice
+\newpage
+\tableofcontents
+
+% Contenido
+\newpage
+\section{Sección}
+\lipsum[1-2]
+\cite{knuth1984}
+
+\subsection{Subsección}
+\lipsum[3]
+
+\section{Sección}
+\lipsum[1-2]
+\newpage
+
+% Bibliografía
+\printbibliography
+\addcontentsline{toc}{section}{Referencias}
+
+% Apéndice
+\appendix
+\section{Apéndice}
+\lipsum[4-5]
+
+\end{document}
